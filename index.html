@@ -1,1 +1,491 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCNDS Project - Distributed and Cloud-based Network Defense System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FCF5EC;
+            color: #1D1D1B;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #9A2AA0 0%, #DA3FA3 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 15px rgba(154, 42, 160, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .logo-item img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .title-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .title-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #4E245C;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            background-color: #9A2AA0;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .hero-section {
+            background: linear-gradient(45deg, rgba(154, 42, 160, 0.1), rgba(218, 63, 163, 0.1));
+            padding: 60px 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .hero-section h2 {
+            font-size: 2.5rem;
+            color: #9A2AA0;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #4E245C;
+        }
+
+        /* Content Sections */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .content-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(154, 42, 160, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(154, 42, 160, 0.2);
+        }
+
+        .content-card h3 {
+            color: #9A2AA0;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #9A2AA0, #DA3FA3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .countries-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(154, 42, 160, 0.1);
+        }
+
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .country-card {
+            background: linear-gradient(135deg, #9A2AA0, #DA3FA3);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .country-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #4E245C;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 10px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .logo-section {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .logo-item img {
+                height: 30px;
+            }
+
+            .title-section h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero-section h2 {
+                font-size: 2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .countries-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-logos {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-section {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .title-section h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-section {
+                padding: 40px 20px;
+            }
+
+            .content-card {
+                padding: 20px;
+            }
+
+            .countries-section {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .content-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .content-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-item">
+                        <img src="images/logos/tein-logo.png" alt="TEIN CC Logo" />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/asia-connect-logo.png" alt="Asia Connect Logo" />
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/logos/eu-logo.png" alt="European Union Logo" />
+                    </div>
+                </div>
+                <div class="title-section">
+                    <h1>DCNDS</h1>
+                    <p>Distributed and Cloud-based Network Defense System</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#objectives">Objectives</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#outcomes">Outcomes</a></li>
+                <li><a href="#countries">Countries</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section class="hero-section" id="overview">
+                <h2>Enhancing Cybersecurity Across Asia</h2>
+                <p>The DCNDS project addresses increasing network threats like web security compromises and distributed botnets that disrupt network operations across National Research and Education Networks (NRENs) in Asia.</p>
+            </section>
+
+            <section class="content-grid">
+                <div class="content-card" id="objectives">
+                    <h3><span class="icon">🎯</span>Project Objectives</h3>
+                    <p>Establish distributed monitoring nodes in each NREN for botnet behavior analysis and implement a cloud-based web security service platform (CESS) to manage web security for participating institutions.</p>
+                </div>
+
+                <div class="content-card" id="activities">
+                    <h3><span class="icon">⚙️</span>Key Activities</h3>
+                    <p>System deployment across four countries, capacity building workshops training 240+ participants, stakeholder dialogues with ISPs and government agencies, and comprehensive dissemination of project materials.</p>
+                </div>
+
+                <div class="content-card" id="outcomes">
+                    <h3><span class="icon">🏆</span>Major Outcomes</h3>
+                    <p>Operational DCNDS with distributed botnet monitoring nodes, FIWARE cluster and security dashboard, completed capacity building workshops, and research dataset for future collaboration.</p>
+                </div>
+            </section>
+
+            <section class="countries-section" id="countries">
+                <h2 style="color: #9A2AA0; text-align: center; margin-bottom: 20px;">Beneficiary Countries</h2>
+                <div class="countries-grid">
+                    <div class="country-card">
+                        <h4>🇧🇩 Bangladesh</h4>
+                        <p>BUET & BdREN<br>Cloud Security Platform</p>
+                    </div>
+                    <div class="country-card">
+                        <h4>🇮🇩 Indonesia</h4>
+                        <p>Universitas Brawijaya<br>Monitoring Node</p>
+                    </div>
+                    <div class="country-card">
+                        <h4>🇲🇾 Malaysia</h4>
+                        <p>Universiti Sains Malaysia<br>Analytics Hub</p>
+                    </div>
+                    <div class="country-card">
+                        <h4>🇵🇭 Philippines</h4>
+                        <p>ASTI<br>Network Security</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logos">
+                <div class="footer-logo">
+                    <img src="images/logos/tein-logo.png" alt="TEIN CC" />
+                </div>
+                <div class="footer-logo">
+                    <img src="images/logos/asia-connect-logo.png" alt="Asia Connect" />
+                </div>
+                <div class="footer-logo">
+                    <img src="images/logos/eu-logo.png" alt="European Union" />
+                </div>
+            </div>
+            <p>&copy; 2021 DCNDS Project. Supporting SDG 9, SDG 16, SDG 17</p>
+            <p>Funded under the 2nd Call | Project Duration: June 2018 - February 2021</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(78, 36, 92, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = '#4E245C';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all content cards
+        document.querySelectorAll('.content-card, .countries-section').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
